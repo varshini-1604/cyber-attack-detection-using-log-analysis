@@ -1,6 +1,5 @@
+logs.csv
+forensic_log.csv
 __pycache__/
 *.pyc
 venv/
-.env
-logs.csv
-forensic_log.csv

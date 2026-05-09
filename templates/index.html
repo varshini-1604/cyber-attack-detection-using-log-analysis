@@ -42,10 +42,21 @@
                 <i data-lucide="database-backup" class="w-5 h-5"></i>
                 Generate Log Event
             </a>
+
+            <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data" class="hidden">
+                <input type="file" id="logfileInput" name="logfile" accept=".csv" onchange="submitLogsForm()">
+            </form>
+
+            <button onclick="triggerFileInput()" 
+                    class="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-indigo-400 hover:text-indigo-300 font-medium rounded-xl transition flex items-center justify-center gap-2">
+                <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+                Upload Log File
+            </button>
+
             <a href="/dashboard" 
                class="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white font-medium rounded-xl transition flex items-center justify-center gap-2">
                 <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-                Open Forensic Dashboard
+                Open Dashboard
             </a>
         </div>
     </main>
@@ -55,6 +66,18 @@
     </footer>
 
     <script>
+        // Simple helper script to handle the stealth file-picker UI
+        function triggerFileInput() {
+            document.getElementById('logfileInput').click();
+        }
+
+        function submitLogsForm() {
+            const input = document.getElementById('logfileInput');
+            if (input.files.length > 0) {
+                document.getElementById('uploadForm').submit();
+            }
+        }
+
         lucide.createIcons();
     </script>
 </body>

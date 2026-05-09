@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import pandas as pd
 import hashlib
 from datetime import datetime
@@ -36,6 +36,38 @@ SESSION_START_HASH = calculate_current_hash()
 @app.route('/')
 def home():
     return render_template('index.html')
+
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    """Handles uploading a custom logs.csv file and redirects to the dashboard."""
+    if 'logfile' not in request.files:
+        return redirect(url_for('home'))
+    
+    file = request.files['logfile']
+    
+    if file.filename == '':
+        return redirect(url_for('home'))
+    
+    if file and file.filename.endswith('.csv'):
+        try:
+            # Temporary check to ensure the CSV has the correct headers
+            df = pd.read_csv(file)
+            required_headers = {'ip', 'time', 'user', 'status', 'role'}
+            
+            if required_headers.issubset(df.columns):
+                # Save the uploaded file as our primary logs.csv database
+                df.to_csv(LOG_FILE, index=False)
+                # Reset session hash so it doesn't immediately flag tampering unless modified after upload
+                global SESSION_START_HASH
+                SESSION_START_HASH = calculate_current_hash()
+                return redirect(url_for('dashboard'))
+            else:
+                return "Error: CSV headers must include ip, time, user, status, and role."
+        except Exception as e:
+            return f"Error processing file: {str(e)}"
+            
+    return "Error: Invalid file format. Please upload a standard .csv file."
 
 
 @app.route('/login_page')
