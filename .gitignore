@@ -1,5 +1,25 @@
-logs.csv
-forensic_log.csv
+# Python cache
 __pycache__/
 *.pyc
+
+# Virtual environment
 venv/
+
+# Log files
+logs.csv
+forensic_log.csv
+
+# Ignore all CSV log databases
+*.csv
+
+# PyInstaller files
+build/
+dist/
+*.spec
+
+# Executable tool folder
+CyberTool/
+
+# OS files
+.DS_Store
+Thumbs.db
