@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Attack Detection Using Log Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black flex flex-col justify-between">
+
+    <header class="border-b border-slate-800/80 bg-slate-900/40 backdrop-blur-md px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-indigo-500/10 rounded-lg border border-indigo-500/30 text-indigo-400">
+                    <i data-lucide="shield" class="w-6 h-6"></i>
+                </div>
+                <span class="text-sm font-semibold tracking-wider text-slate-400">SIEM Analyzer Platform</span>
+            </div>
+            <div class="text-xs text-indigo-400 font-mono bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full">
+                SYSTEM: NOMINAL
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-20 text-center space-y-8 my-auto">
+        <div class="space-y-4">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded-full text-xs font-semibold uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span> Dynamic Log Analyzer v1.2
+            </span>
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+                Cyber Attack Detection <br class="hidden sm:inline"/>Using Log Analysis
+            </h1>
+            <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                An active Security Information and Event Management (SIEM) dashboard designed to capture, monitor, and mathematically analyze network and host auth logs for threats.
+            </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <a href="/login_page" 
+               class="w-full sm:w-auto px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-medium rounded-xl shadow-lg shadow-indigo-600/10 hover:shadow-indigo-600/20 transition-all flex items-center justify-center gap-2">
+                <i data-lucide="database-backup" class="w-5 h-5"></i>
+                Generate Log Event
+            </a>
+            <a href="/dashboard" 
+               class="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white font-medium rounded-xl transition flex items-center justify-center gap-2">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                Open Forensic Dashboard
+            </a>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-600">
+        Cyber Attack Detection Using Log Analysis &copy; 2026. Academic Security Framework Project.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
